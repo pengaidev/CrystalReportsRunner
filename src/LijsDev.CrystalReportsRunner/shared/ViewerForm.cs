@@ -102,6 +102,11 @@ internal partial class ViewerForm : Form
         crystalReportViewer1.ShowExportButton = viewerSettings.ShowExportButton;
         crystalReportViewer1.ShowZoomButton = viewerSettings.ShowZoomButton;
 
+        if (!viewerSettings.ShowTemplatePanel)
+        {
+            PnTop.Visible = false;
+        }
+
         cboTemplate.DataSource = viewerSettings.TemplateCollection.Keys.ToList();
     }
 

@@ -275,4 +275,12 @@ public sealed class ReportViewerSettings
     /// </summary>
     public Dictionary<string, Report> TemplateCollection { get; set; } = TemplateCollectionDefault;
     private const Dictionary<string, Report> TemplateCollectionDefault = null;
+    /// <summary>
+    /// Sets whether the template list panel is visible or hidden.
+    /// Default: true
+    /// </summary>
+    public bool ShowTemplatePanel { get; set; } = ShowTemplatePanelDefault;
+    /// <inheritdoc/>
+    public bool ShouldSerializeShowTemplatePanel() => ShowTemplatePanel != ShowTemplatePanelDefault;
+    private const bool ShowTemplatePanelDefault = true;
 }

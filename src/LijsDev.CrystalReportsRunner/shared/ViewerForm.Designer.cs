@@ -29,24 +29,24 @@ namespace LijsDev.CrystalReportsRunner
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewerForm));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.PnTop = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cboTemplate = new System.Windows.Forms.ComboBox();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.panel1.SuspendLayout();
+            this.PnTop.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // PnTop
             // 
-            this.panel1.Controls.Add(this.btnRefresh);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.cboTemplate);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1067, 44);
-            this.panel1.TabIndex = 0;
+            this.PnTop.Controls.Add(this.btnRefresh);
+            this.PnTop.Controls.Add(this.label1);
+            this.PnTop.Controls.Add(this.cboTemplate);
+            this.PnTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnTop.Location = new System.Drawing.Point(0, 0);
+            this.PnTop.Name = "PnTop";
+            this.PnTop.Size = new System.Drawing.Size(1067, 44);
+            this.PnTop.TabIndex = 0;
             // 
             // btnRefresh
             // 
@@ -98,20 +98,20 @@ namespace LijsDev.CrystalReportsRunner
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PnTop);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewerForm";
             this.Text = "Viewer Form";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.PnTop.ResumeLayout(false);
+            this.PnTop.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Panel panel1;
+        private Panel PnTop;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
         private Label label1;
         private ComboBox cboTemplate;
