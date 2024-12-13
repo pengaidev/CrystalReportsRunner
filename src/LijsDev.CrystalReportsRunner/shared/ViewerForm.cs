@@ -3,6 +3,7 @@ namespace LijsDev.CrystalReportsRunner;
 using System.Windows.Forms;
 
 using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.ReportAppServer;
 using CrystalDecisions.Windows.Forms;
 
 using LijsDev.CrystalReportsRunner.Core;
@@ -11,11 +12,12 @@ internal partial class ViewerForm : Form
 {
     private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
     private readonly bool _closeOnEscapeKey;
+    private readonly ReportViewerSettings _viewerSettings; 
 
     public ViewerForm(ReportDocument document, ReportViewerSettings viewerSettings)
     {
         InitializeComponent();
-
+        _viewerSettings = viewerSettings;
         // Set Icon
         if (viewerSettings.WindowIcon is not null)
         {
@@ -99,6 +101,8 @@ internal partial class ViewerForm : Form
         crystalReportViewer1.ShowPrintButton = viewerSettings.ShowPrintButton;
         crystalReportViewer1.ShowExportButton = viewerSettings.ShowExportButton;
         crystalReportViewer1.ShowZoomButton = viewerSettings.ShowZoomButton;
+
+        cboTemplate.DataSource = viewerSettings.TemplateCollection.Keys.ToList();
     }
 
     protected override bool ProcessDialogKey(Keys keyData)
@@ -131,6 +135,21 @@ internal partial class ViewerForm : Form
                     tab.Appearance = TabAppearance.Normal;
                 }
             }
+        }
+    }
+
+    private void BtnRefresh_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            _viewerSettings.TemplateCollection.TryGetValue(cboTemplate.SelectedValue.ToString(), out var report);
+            var document = ReportUtils.CreateReportDocument(report);
+            // Set report
+            crystalReportViewer1.ReportSource = document;
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
         }
     }
 }

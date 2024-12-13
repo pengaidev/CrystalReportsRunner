@@ -270,4 +270,9 @@ public sealed class ReportViewerSettings
     /// <inheritdoc/>
     public bool ShouldSerializeShowParameterPanelButton() => ShowParameterPanelButton != ShowParameterPanelButtonDefault;
     private const bool ShowParameterPanelButtonDefault = true;
+    /// <summary>
+    /// Sets the template List
+    /// </summary>
+    public Dictionary<string, Report> TemplateCollection { get; set; } = TemplateCollectionDefault;
+    private const Dictionary<string, Report> TemplateCollectionDefault = null;
 }

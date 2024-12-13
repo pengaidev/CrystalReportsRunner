@@ -259,6 +259,16 @@ public partial class MainWindow : Window
         //engine.ViewerSettings.SetUICulture(Thread.CurrentThread.CurrentUICulture);
         //engine.ViewerSettings.SetUICulture(System.Globalization.CultureInfo.GetCultureInfo("es-ES"));
 
+        // Testing
+        var reports = new Dictionary<string, Report>
+        {
+            { "Template 1", CreateReport() },
+            { "Template 2", CreateReportDataSet() }
+
+        };
+        engine.ViewerSettings.TemplateCollection = reports;
+
+
         engine.FormClosed += Engine_FormClosed;
         engine.FormLoaded += Engine_FormLoaded;
 
