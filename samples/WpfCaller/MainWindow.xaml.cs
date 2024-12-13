@@ -259,6 +259,7 @@ public partial class MainWindow : Window
         //engine.ViewerSettings.SetUICulture(Thread.CurrentThread.CurrentUICulture);
         //engine.ViewerSettings.SetUICulture(System.Globalization.CultureInfo.GetCultureInfo("es-ES"));
 
+        engine.ViewerSettings.ShowTemplatePanel = true;
         // Testing
         var reports = new Dictionary<string, Report>
         {
