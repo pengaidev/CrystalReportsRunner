@@ -282,5 +282,5 @@ public sealed class ReportViewerSettings
     public bool ShowTemplatePanel { get; set; } = ShowTemplatePanelDefault;
     /// <inheritdoc/>
     public bool ShouldSerializeShowTemplatePanel() => ShowTemplatePanel != ShowTemplatePanelDefault;
-    private const bool ShowTemplatePanelDefault = true;
+    private const bool ShowTemplatePanelDefault = false;
 }
